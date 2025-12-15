@@ -1,6 +1,6 @@
 # fibonacci-4n
 
-https://oeis.org/A004187\
+https://oeis.org/A004187 \
 https://oeis.org/A004187/b004187.txt
 
 # Usage
