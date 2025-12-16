@@ -1,6 +1,6 @@
 # fibonacci-4n
 
-Values divided by 3 of values of odd indexes of [A001906](https://oeis.org/A001906)
+Values for odd indexes of [A001906](https://oeis.org/A001906) divided by 3.
 
 https://oeis.org/A004187 - a(n) = 7*a(n-1) - a(n-2) with a(0) = 0, a(1) = 1\
 https://oeis.org/A004187/b004187.txt
