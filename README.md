@@ -1,9 +1,10 @@
 # fibonacci-4n
 
-Values for odd indexes of [A001906](https://oeis.org/A001906) divided by 3.
+a(n) = Fibonacci(4*n)/3
 
 https://oeis.org/A004187 - a(n) = 7*a(n-1) - a(n-2) with a(0) = 0, a(1) = 1\
-https://oeis.org/A004187/b004187.txt
+https://oeis.org/A004187/b004187.txt \
+Values for odd indexes of [A001906](https://oeis.org/A001906) divided by 3.
 
 # Configuration
 Adjust PRECISION_BITS value for high n values (n > 11500)
