@@ -6,14 +6,16 @@
 
 using namespace std;
 
+/* précision binaire: 10000 chiffres décimaux ≈ 10000 * log2(10) ≈ 33219 bits + marge de sécurité */
+#define PRECISION_BITS 35000
+
 int main(int argc, char* argv[]) {
     if (argc != 2) {
         cerr << "Usage: " << argv[0] << " <n-as-decimal-string>" << endl;
         return 1;
     }
 
-    /* précision binaire: 2000 chiffres décimaux ≈ 2000 * log2(10) ≈ 6644 bits, marge de sécurité incluse */
-    const slong prec = 8000;
+    const slong prec = PRECISION_BITS;
     fmpz_t n;
     fmpz_init(n);
     if (fmpz_set_str(n, argv[1], 10) != 0) {
@@ -53,8 +55,8 @@ int main(int argc, char* argv[]) {
     arb_div(r, r, a, prec);
 
     /* Affichage haute précision */
-    cout << "r = ";
-    arb_printn(r, 2100, 0);
+    cout << "raw = ";
+    arb_printn(r, prec, 0);
     cout << endl;
 
     /* Arrondi contrôlé */
@@ -86,10 +88,12 @@ int main(int argc, char* argv[]) {
     arb_mul_2exp_si(tol, tol, -3000);
 
     if (!arb_lt(diff, tol)) {
-        cerr << "Warning: r may not be close enough to an integer" << endl;
+        cerr << "Warning: raw value may not be close enough to an integer or precision too low" << endl;
     }
 
-    cout << "s = ";
+    cout << "a(";
+    fmpz_print(n);
+    cout << ") = ";
     fmpz_print(s);
     cout << endl;
 
